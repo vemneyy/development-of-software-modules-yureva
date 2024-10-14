@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace WpfApp1
+namespace lab_2_classes
 {
     /// <summary>
     /// Interaction logic for App.xaml

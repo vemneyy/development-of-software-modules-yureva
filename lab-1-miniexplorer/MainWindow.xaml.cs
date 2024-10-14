@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿// MainWindow.xaml.cs
+
+using System.Diagnostics;
 using System.IO;
 using System.Management;
 using System.Windows.Controls;
