@@ -1,5 +1,5 @@
 ﻿<!-- MainWindow.xaml -->
-    
+
 <Window x:Class="lab_1_miniexplorer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -17,5 +17,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="60,45,0,0" TextWrapping="Wrap" Text="ДИСК" VerticalAlignment="Top" Height="33" Width="115" TextAlignment="Center" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="308,45,0,0" TextWrapping="Wrap" Text="КАТАЛОГИ" VerticalAlignment="Top" Height="33" Width="114" TextAlignment="Center" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="625,45,0,0" TextWrapping="Wrap" Text="СПИСОК ФАЙЛОВ" VerticalAlignment="Top" Height="33" Width="180" TextAlignment="Center" FontSize="20"/>
+        
     </Grid>
 </Window>

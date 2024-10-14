@@ -362,5 +362,91 @@ namespace lab_2_classes
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Получение данных из TextBox
+                string name = NameTextBox.Text;
+                string surname = SurnameTextBox.Text;
+                string dateOfBirth = DateOfBirthTextBox.Text;
+                string nickname = NicknameTextBox.Text;
+                string password = PasswordTextBox.Text;
+                string confirmPassword = ConfirmPasswordTextBox.Text;
+
+                // Проверка двух паролей
+                if (password != confirmPassword)
+                {
+                    MessageBox.Show("Пароли не совпадают.");
+                    return;
+                }
+
+                // Получение последних двух цифр года рождения
+                string lastTwoDigitsOfYear = "";
+                DateTime dob;
+                if (DateTime.TryParseExact(dateOfBirth, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None, out dob))
+                {
+                    lastTwoDigitsOfYear = (dob.Year % 100).ToString("D2");
+                }
+                else
+                {
+                    MessageBox.Show("Пожалуйста, введите дату рождения в формате ДД.ММ.ГГГГ.");
+                    return;
+                }
+
+                // Создание списка личной информации
+                List<string> personalInfo = new List<string>
+                {
+                    name,
+                    surname,
+                    nickname,
+                    lastTwoDigitsOfYear
+                };
+
+                // Создания объекта StrongPassword
+                StrongPassword strongPassword = new StrongPassword(password);
+
+                // Проверка устойчивости
+                string message;
+                bool isStrong = strongPassword.AnalyzePasswordStrength(personalInfo, out message);
+
+                // Вывод сообщения
+                PasswordResultTextBlock.Text = message;
+
+                if (isStrong)
+                {
+                    MessageBox.Show("Регистрация прошла успешно.");
+                }
+                else
+                {
+                    MessageBox.Show("Пароль не соответствует требованиям:\n" + message);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        // Обработчик события для кнопки "Заполнить случайными значениями"
+        private void RandomFillButton_Click(object sender, RoutedEventArgs e)
+        {
+            Random random = new Random();
+            for (int i = 0; i < dimension; i++)
+            {
+                for (int j = 0; j < dimension; j++)
+                {
+                    // Генерация случайного целого числа для матрицы A
+                    int randomValueA = random.Next(-1, 1); 
+                    matrixATextBoxes[i, j].Text = randomValueA.ToString();
+
+                    // Генерация случайного целого числа для матрицы B
+                    int randomValueB = random.Next(-1, 1);
+                    matrixBTextBoxes[i, j].Text = randomValueB.ToString();
+                }
+            }
+        }
+
     }
 }

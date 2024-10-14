@@ -39,34 +39,6 @@ public class SquareMatrix
         set { elements[i, j] = value; }
     }
 
-    // Метод проверки, является ли матрица верхнетреугольной
-    public bool IsUpperTriangular()
-    {
-        for (int i = 1; i < dimension; i++)
-        {
-            for (int j = 0; j < i; j++)
-            {
-                if (elements[i, j] != 0)
-                    return false; // Если элемент ниже главной диагонали не равен нулю, матрица не верхнетреугольная
-            }
-        }
-        return true; // Матрица верхнетреугольная
-    }
-
-    // Метод проверки, является ли матрица нижнетреугольной
-    public bool IsLowerTriangular()
-    {
-        for (int i = 0; i < dimension - 1; i++)
-        {
-            for (int j = i + 1; j < dimension; j++)
-            {
-                if (elements[i, j] != 0)
-                    return false; // Если элемент выше главной диагонали не равен нулю, матрица не нижнетреугольная
-            }
-        }
-        return true; // Матрица нижнетреугольная
-    }
-
     // Переопределение метода ToString для представления матрицы в виде строки
     public override string ToString()
     {
@@ -152,9 +124,42 @@ public class SquareMatrix
         return result;
     }
 
-    // Дополнительный оператор для умножения числа на матрицу
-    public static SquareMatrix operator *(double scalar, SquareMatrix a)
+    // Метод проверки, является ли матрица верхнетреугольной
+    public bool IsUpperTriangular()
     {
-        return a * scalar; // Использование ранее определенного оператора
+        for (int i = 0; i < dimension; i++)
+        {
+            // Проверяем, что диагональный элемент не нулевой
+            if (elements[i, i] == 0)
+                return false;
+
+            for (int j = 0; j < i; j++)
+            {
+                // Элементы ниже главной диагонали должны быть нулями
+                if (elements[i, j] != 0)
+                    return false;
+            }
+        }
+        return true; // Матрица верхнетреугольная
     }
+
+    // Метод проверки, является ли матрица нижнетреугольной
+    public bool IsLowerTriangular()
+    {
+        for (int i = 0; i < dimension; i++)
+        {
+            // Проверяем, что диагональный элемент не нулевой
+            if (elements[i, i] == 0)
+                return false;
+
+            for (int j = i + 1; j < dimension; j++)
+            {
+                // Элементы выше главной диагонали должны быть нулями
+                if (elements[i, j] != 0)
+                    return false;
+            }
+        }
+        return true; // Матрица нижнетреугольная
+    }
+
 }

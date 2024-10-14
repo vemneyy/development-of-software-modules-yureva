@@ -22,9 +22,12 @@
                             <!-- Размерность матрицы -->
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                                 <TextBlock Text="Размерность матрицы:" VerticalAlignment="Center"/>
-                                <TextBox Name="DimensionTextBox" Width="50" Margin="5,0,0,0" Text="3" TextChanged="DimensionTextBox_TextChanged"/>
-                                <Button Name="SetDimensionButton" Content="Установить размерность" Margin="5,0,0,0" Click="SetDimensionButton_Click"/>
+                                <TextBox Name="DimensionTextBox" Width="50" Margin="5,0,0,0" Text="3" TextChanged="DimensionTextBox_TextChanged" Height="24" VerticalAlignment="Center" TextAlignment="Center"/>
+                                <Button Name="SetDimensionButton" Content="Установить размерность" Margin="5,0,0,0" Click="SetDimensionButton_Click" Height="24"/>
+                                <Button Name="RandomFillButton" Content="Заполнить случайными значениями" Margin="5" Click="RandomFillButton_Click" Height="24"/>
                             </StackPanel>
+
+
 
                             <!-- Ввод матрицы A -->
                             <GroupBox Header="Матрица A" Margin="0,0,0,10">
@@ -59,7 +62,7 @@
 
                         <!-- Отображение результатов -->
                         <ScrollViewer Grid.Row="2" Margin="10">
-                            <TextBlock Name="ResultTextBlock" FontFamily="Consolas" FontSize="14"/>
+                            <TextBlock Name="ResultTextBlock" FontFamily="Consolas" FontSize="16"/>
                         </ScrollViewer>
 
                     </Grid>
@@ -106,9 +109,64 @@
 
                     <!-- Отображение результатов дробей -->
                     <ScrollViewer Grid.Row="2" Margin="10">
-                        <TextBlock Name="FractionResultTextBlock" FontFamily="Consolas" FontSize="14"/>
+                        <TextBlock Name="FractionResultTextBlock" FontFamily="Consolas" FontSize="20"/>
                     </ScrollViewer>
                 </Grid>
+            </TabItem>
+            <TabItem Header="Пароли">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Личная информация пользователя -->
+                        <StackPanel Orientation="Vertical" Grid.Row="0" Margin="0,0,0,10">
+                            <!-- Имя -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <TextBlock Text="Имя:" VerticalAlignment="Center"/>
+                                <TextBox Name="NameTextBox" Width="150" Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <!-- Фамилия -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <TextBlock Text="Фамилия:" VerticalAlignment="Center"/>
+                                <TextBox Name="SurnameTextBox" Width="150" Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <!-- Дата рождения -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <TextBlock Text="Дата рождения (ДД.ММ.ГГГГ):" VerticalAlignment="Center"/>
+                                <TextBox Name="DateOfBirthTextBox" Width="150" Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <!-- Никнейм -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <TextBlock Text="Никнейм:" VerticalAlignment="Center"/>
+                                <TextBox Name="NicknameTextBox" Width="150" Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <!-- Ввод пароля -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <TextBlock Text="Пароль:" VerticalAlignment="Center"/>
+                                <TextBox Name="PasswordTextBox" Width="150" Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <!-- Подтверждение пароля -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <TextBlock Text="Подтвердите пароль:" VerticalAlignment="Center"/>
+                                <TextBox Name="ConfirmPasswordTextBox" Width="150" Margin="5,0,0,0"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!-- Кнопка -->
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,10">
+                            <Button Name="RegisterButton" Content="Зарегистрироваться" Margin="5" Click="RegisterButton_Click"/>
+                        </StackPanel>
+
+                        <!-- Результат -->
+                        <ScrollViewer Grid.Row="2" Margin="10">
+                            <TextBlock Name="PasswordResultTextBlock" FontFamily="Consolas" FontSize="14"/>
+                        </ScrollViewer>
+                    </Grid>
+                </ScrollViewer>
             </TabItem>
         </TabControl>
     </Grid>
