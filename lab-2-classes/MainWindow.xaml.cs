@@ -447,6 +447,58 @@ namespace lab_2_classes
                 }
             }
         }
+        // Обработчик для кнопки "Зашифровать"
+        private void VigenereEncryptButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Получение текста и ключа
+                string text = VigenereInputTextBox.Text;
+                string key = VigenereKeyTextBox.Text;
 
+                if (string.IsNullOrWhiteSpace(key))
+                {
+                    MessageBox.Show("Пожалуйста, введите ключ для шифрования.");
+                    return;
+                }
+
+                // Шифрование текста
+                string encryptedText = VigenereCipher.Encrypt(text, key);
+
+                // Отображение результата
+                VigenereResultTextBox.Text = encryptedText;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        // Обработчик для кнопки "Дешифровать"
+        private void VigenereDecryptButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Получение текста и ключа
+                string text = VigenereInputTextBox.Text;
+                string key = VigenereKeyTextBox.Text;
+
+                if (string.IsNullOrWhiteSpace(key))
+                {
+                    MessageBox.Show("Пожалуйста, введите ключ для дешифрования.");
+                    return;
+                }
+
+                // Дешифрование текста
+                string decryptedText = VigenereCipher.Decrypt(text, key);
+
+                // Отображение результата
+                VigenereResultTextBox.Text = decryptedText;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
