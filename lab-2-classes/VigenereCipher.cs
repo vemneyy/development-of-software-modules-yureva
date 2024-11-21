@@ -13,8 +13,8 @@ namespace lab_2_classes
             StringBuilder result = new StringBuilder();
 
             // Приводим текст и ключ к верхнему регистру
-            text = text.ToUpper();
-            key = key.ToUpper();
+            text = text.ToUpper(System.Globalization.CultureInfo.CurrentCulture);
+            key = key.ToUpper(System.Globalization.CultureInfo.CurrentCulture);
 
             int keyIndex = 0;
 
@@ -51,8 +51,8 @@ namespace lab_2_classes
             StringBuilder result = new StringBuilder();
 
             // Приводим текст и ключ к верхнему регистру
-            text = text.ToUpper();
-            key = key.ToUpper();
+            text = text.ToUpper(System.Globalization.CultureInfo.CurrentCulture);
+            key = key.ToUpper(System.Globalization.CultureInfo.CurrentCulture);
 
             int keyIndex = 0;
 
