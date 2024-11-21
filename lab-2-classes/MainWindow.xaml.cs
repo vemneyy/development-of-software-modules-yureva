@@ -368,28 +368,23 @@ namespace lab_2_classes
             try
             {
                 // Получение данных из TextBox
-                string name = NameTextBox.Text;
-                string surname = SurnameTextBox.Text;
-                string dateOfBirth = DateOfBirthTextBox.Text;
-                string nickname = NicknameTextBox.Text;
+                string name = NameTextBox.Text.Trim();
+                string surname = SurnameTextBox.Text.Trim();
+                string dateOfBirth = DateOfBirthTextBox.Text.Trim();
+                string nickname = NicknameTextBox.Text.Trim();
                 string password = PasswordTextBox.Text;
                 string confirmPassword = ConfirmPasswordTextBox.Text;
 
-                // Проверка двух паролей
+                // Проверка совпадения паролей
                 if (password != confirmPassword)
                 {
                     MessageBox.Show("Пароли не совпадают.");
                     return;
                 }
 
-                // Получение последних двух цифр года рождения
-                string lastTwoDigitsOfYear = "";
+                // Разбор даты рождения
                 DateTime dob;
-                if (DateTime.TryParseExact(dateOfBirth, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None, out dob))
-                {
-                    lastTwoDigitsOfYear = (dob.Year % 100).ToString("D2");
-                }
-                else
+                if (!DateTime.TryParseExact(dateOfBirth, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None, out dob))
                 {
                     MessageBox.Show("Пожалуйста, введите дату рождения в формате ДД.ММ.ГГГГ.");
                     return;
@@ -400,18 +395,17 @@ namespace lab_2_classes
                 {
                     name,
                     surname,
-                    nickname,
-                    lastTwoDigitsOfYear
+                    nickname
                 };
 
-                // Создания объекта StrongPassword
+                // Создание объекта StrongPassword
                 StrongPassword strongPassword = new StrongPassword(password);
 
-                // Проверка устойчивости
+                // Проверка устойчивости пароля
                 string message;
-                bool isStrong = strongPassword.AnalyzePasswordStrength(personalInfo, out message);
+                bool isStrong = strongPassword.AnalyzePasswordStrength(personalInfo, dob, out message);
 
-                // Вывод сообщения
+                // Отображение результата проверки
                 PasswordResultTextBlock.Text = message;
 
                 if (isStrong)
@@ -425,7 +419,7 @@ namespace lab_2_classes
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Произошла ошибка: " + ex.Message);
             }
         }
 

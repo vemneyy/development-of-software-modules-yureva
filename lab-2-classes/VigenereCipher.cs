@@ -42,7 +42,6 @@ namespace lab_2_classes
                     result.Append(c);
                 }
             }
-
             return result.ToString();
         }
 
@@ -81,7 +80,6 @@ namespace lab_2_classes
                     result.Append(c);
                 }
             }
-
             return result.ToString();
         }
     }
