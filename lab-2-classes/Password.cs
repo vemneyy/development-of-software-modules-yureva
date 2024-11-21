@@ -40,12 +40,6 @@ namespace lab_2_classes
         {
         }
 
-        /// <summary>
-        /// Анализирует надежность пароля.
-        /// </summary>
-        /// <param name="personalInfo">Список личной информации пользователя</param>
-        /// <param name="message">Выходное сообщение с результатами анализа</param>
-        /// <returns>Возвращает true, если пароль надежный, иначе false</returns>
         public bool AnalyzePasswordStrength(List<string> personalInfo, out string message)
         {
             string password = this.password;
@@ -110,12 +104,7 @@ namespace lab_2_classes
 
             return isStrong;
         }
-
-        /// <summary>
-        /// Проверяет, содержит ли пароль последовательности символов, расположенных рядом на клавиатуре.
-        /// </summary>
-        /// <param name="password">Пароль для проверки</param>
-        /// <returns>Возвращает true, если найдена последовательность, иначе false</returns>
+        
         private bool ContainsKeyboardSequence(string password)
         {
             // Определение последовательностей символов на клавиатуре

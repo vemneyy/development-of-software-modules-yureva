@@ -168,6 +168,10 @@
                     </Grid>
                 </ScrollViewer>
             </TabItem>
+            <TabItem Header="Шифрование">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                </ScrollViewer>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
