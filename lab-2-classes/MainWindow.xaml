@@ -1,7 +1,7 @@
 ﻿<Window x:Class="lab_2_classes.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Операции над квадратными матрицами и дробями" Height="600" Width="915">
+        Title="Лабораторная работа №2" Height="600" Width="915">
     <Grid>
         <TabControl>
             <!-- Вкладка операций с матрицами -->
@@ -168,10 +168,42 @@
                     </Grid>
                 </ScrollViewer>
             </TabItem>
-            <TabItem Header="Шифрование">
+            <TabItem Header="Шифр Виженера">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Ввод текста и ключа -->
+                        <StackPanel Orientation="Vertical" Grid.Row="0" Margin="0,0,0,10">
+                            <!-- Текст для шифрования/дешифрования -->
+                            <GroupBox Header="Текст" Margin="0,0,0,10">
+                                <TextBox Name="VigenereInputTextBox" AcceptsReturn="True" Height="100" TextWrapping="Wrap"/>
+                            </GroupBox>
+                            <!-- Ключ -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <TextBlock Text="Ключ:" VerticalAlignment="Center"/>
+                                <TextBox Name="VigenereKeyTextBox" Width="200" Margin="5,0,0,0"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!-- Кнопки операций -->
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,10">
+                            <Button Name="VigenereEncryptButton" Content="Зашифровать" Margin="5" Click="VigenereEncryptButton_Click"/>
+                            <Button Name="VigenereDecryptButton" Content="Дешифровать" Margin="5" Click="VigenereDecryptButton_Click"/>
+                        </StackPanel>
+
+                        <!-- Отображение результатов -->
+                        <GroupBox Header="Результат" Grid.Row="2" Margin="0,10,0,0">
+                            <TextBox Name="VigenereResultTextBox" AcceptsReturn="True" Height="200" TextWrapping="Wrap" IsReadOnly="True"/>
+                        </GroupBox>
+                    </Grid>
                 </ScrollViewer>
             </TabItem>
+
         </TabControl>
     </Grid>
 </Window>
