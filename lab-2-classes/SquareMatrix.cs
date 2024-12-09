@@ -47,7 +47,7 @@ public class SquareMatrix
         {
             for (int j = 0; j < dimension; j++)
             {
-                sb.AppendFormat("{0}\t", elements[i, j]); // Добавляем элемент и табуляцию
+                sb.AppendFormat(System.Globalization.CultureInfo.InvariantCulture, "{0}\t", elements[i, j]); // Добавляем элемент и табуляцию
             }
             sb.AppendLine(); // Переход на новую строку после каждой строки матрицы
         }
