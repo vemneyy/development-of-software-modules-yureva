@@ -48,9 +48,9 @@ namespace lab_3_example_mvvm
                 OnPropertyChanged("Sq"); // уведомление View о том, что изменилась площадь
             }
         }
+
         public double Sq
         {
-            //  get { return square(); }
             get { return width * length; }
         }
     }
