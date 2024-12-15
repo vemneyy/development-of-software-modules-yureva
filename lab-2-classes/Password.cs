@@ -7,15 +7,18 @@ using System.Windows;
 
 namespace lab_2_classes
 {
+    // Класс для работы с паролями
     public class Password
     {
         protected string password;
 
+        // Конструктор класса Password, инициализирует пароль
         public Password(string password)
         {
             this.password = password;
         }
 
+        // Метод для проверки правильности введенного пароля
         public void CheckPassword(string input)
         {
             if (input == password)
@@ -29,19 +32,27 @@ namespace lab_2_classes
         }
     }
 
+    // Класс для работы с сильными паролями, наследуется от Password
     public class StrongPassword : Password
     {
+        // Конструктор класса StrongPassword, вызывает конструктор базового класса
         public StrongPassword(string password) : base(password)
         {
         }
 
-        public bool AnalyzePasswordStrength(List<string> personalInfo, DateTime birthDate, out string message)
+        /// <summary>
+        /// Анализирует надежность пароля.
+        /// </summary>
+        /// <param name="personalInfo">Список личной информации пользователя</param>
+        /// <param name="message">Выходное сообщение с результатами анализа</param>
+        /// <returns>Возвращает true, если пароль надежный, иначе false</returns>
+        public bool AnalyzePasswordStrength(List<string> personalInfo, DateTime dob, out string message)
         {
             string password = this.password;
             List<string> messages = new List<string>();
             bool isStrong = true;
 
-            // 1. Проверка длины пароля
+            // 1. Проверка длины пароля (должен быть больше 12 символов)
             if (password.Length <= 12)
             {
                 messages.Add("Пароль должен быть длиннее 12 символов.");
@@ -77,7 +88,7 @@ namespace lab_2_classes
                 isStrong = false;
             }
 
-            // 4. Проверка на отсутствие личной информации
+            // 4. Проверка на отсутствие личной информации в пароле
             foreach (var info in personalInfo)
             {
                 if (!string.IsNullOrEmpty(info) && password.ToLower().Contains(info.ToLower()))
@@ -85,13 +96,6 @@ namespace lab_2_classes
                     messages.Add($"Пароль не должен содержать личную информацию: {info}");
                     isStrong = false;
                 }
-            }
-
-            // 5. Проверка на дату рождения
-            if (ContainsBirthDate(password, birthDate))
-            {
-                messages.Add("Пароль не должен содержать комбинации цифр, связанные с датой рождения.");
-                isStrong = false;
             }
 
             // Формирование итогового сообщения
@@ -107,8 +111,14 @@ namespace lab_2_classes
             return isStrong;
         }
 
+        /// <summary>
+        /// Проверяет, содержит ли пароль последовательности символов, расположенных рядом на клавиатуре.
+        /// </summary>
+        /// <param name="password">Пароль для проверки</param>
+        /// <returns>Возвращает true, если найдена последовательность, иначе false</returns>
         private bool ContainsKeyboardSequence(string password)
         {
+            // Определение последовательностей символов на клавиатуре
             string[] sequences = new string[]
             {
                 "1234567890",
@@ -120,12 +130,13 @@ namespace lab_2_classes
                 "~!@#$%^&*()_+",
                 "1qaz2wsx3edc",
                 "qazwsxedc",
-                "abcdefghijklmnopqrstuvwxyz",
+                "abcdefghijklmnopqrstuvwxyz", 
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             };
 
             string pwdLower = password.ToLower();
 
+            // Проверка наличия любой из последовательностей в пароле
             foreach (var seq in sequences)
             {
                 for (int i = 0; i < seq.Length - 2; i++)
@@ -135,31 +146,6 @@ namespace lab_2_classes
                     {
                         return true;
                     }
-                }
-            }
-
-            return false;
-        }
-
-        private bool ContainsBirthDate(string password, DateTime birthDate)
-        {
-            // Форматы дат для проверки
-            string[] dateFormats = new string[]
-            {
-                birthDate.ToString("ddMMyyyy"), // Формат: 25072006
-                birthDate.ToString("MMddyyyy"), // Формат: 07252006
-                birthDate.ToString("yyyyMMdd"), // Формат: 20060725
-                birthDate.ToString("yyyyddMM"), // Формат: 20062507
-                birthDate.ToString("MMdd"),    // Формат: 0725
-                birthDate.ToString("ddMM")     // Формат: 2507
-            };
-
-            // Проверка каждого формата на наличие в пароле
-            foreach (var format in dateFormats)
-            {
-                if (password.Contains(format))
-                {
-                    return true;
                 }
             }
 
