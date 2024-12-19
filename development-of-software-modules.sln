@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab-3-example-mvvm", "lab-3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab-3-individual-mvp", "lab-3-individual-mvp\lab-3-individual-mvp.csproj", "{202083E4-8812-4B70-8DE1-573CF775C1B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab-3-mvvm", "lab-3-mvvm\lab-3-mvvm.csproj", "{F1AC3CDC-B9BA-4A4C-B5E9-ACB72E20AAD3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab-3-individual-mvvm", "lab-3-individual-mvvm\lab-3-individual-mvvm.csproj", "{F1AC3CDC-B9BA-4A4C-B5E9-ACB72E20AAD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

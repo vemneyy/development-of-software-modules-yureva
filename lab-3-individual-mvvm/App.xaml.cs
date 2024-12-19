@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace lab_3_individual_mvvm
+namespace lab_3_mvvm
 {
     /// <summary>
     /// Interaction logic for App.xaml

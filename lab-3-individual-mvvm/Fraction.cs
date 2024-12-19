@@ -2,7 +2,7 @@
 
 using System;
 
-namespace lab_3_mvvm
+namespace lab_3_individual_mvvm
 {
     public class Fraction
     {
