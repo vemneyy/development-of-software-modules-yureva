@@ -6,15 +6,19 @@ using lab_3_individual_mvvm.Commands;
 
 namespace lab_3_individual_mvvm.ViewModels
 {
+    // Класс MainViewModel реализует интерфейс INotifyPropertyChanged для уведомления об изменениях свойств
     public class MainViewModel : INotifyPropertyChanged
     {
+        // Модель для работы с дробями
         private readonly FractionModel _model = new();
+        // Поля для хранения значений числителей и знаменателей дробей, а также результата операции
         private string _numeratorA;
         private string _denominatorA;
         private string _numeratorB;
         private string _denominatorB;
         private string _result;
 
+        // Свойства для привязки к элементам интерфейса
         public string NumeratorA
         {
             get => _numeratorA;
@@ -65,11 +69,13 @@ namespace lab_3_individual_mvvm.ViewModels
             }
         }
 
+        // Команды для выполнения операций с дробями
         public ICommand AddCommand { get; }
         public ICommand SubtractCommand { get; }
         public ICommand MultiplyCommand { get; }
         public ICommand DivideCommand { get; }
 
+        // Конструктор, инициализирующий команды
         public MainViewModel()
         {
             AddCommand = new RelayCommand(AddFractions);
@@ -78,6 +84,7 @@ namespace lab_3_individual_mvvm.ViewModels
             DivideCommand = new RelayCommand(DivideFractions);
         }
 
+        // Методы для выполнения операций с дробями
         private void AddFractions()
         {
             ExecuteOperation((a, b) => _model.Add(a, b));
@@ -105,6 +112,7 @@ namespace lab_3_individual_mvvm.ViewModels
             }
         }
 
+        // Метод для выполнения операции с дробями и обработки ошибок
         private void ExecuteOperation(Func<Fraction, Fraction, Fraction> operation)
         {
             try
@@ -120,6 +128,7 @@ namespace lab_3_individual_mvvm.ViewModels
             }
         }
 
+        // Событие для уведомления об изменении свойств
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {

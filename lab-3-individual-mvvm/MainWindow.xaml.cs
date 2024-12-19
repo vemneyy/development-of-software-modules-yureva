@@ -12,14 +12,15 @@ using System.Windows.Shapes;
 
 namespace lab_3_individual_mvvm
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    // Определение частичного класса MainWindow, наследующего от Window
     public partial class MainWindow : Window
     {
+        // Конструктор класса MainWindow
         public MainWindow()
         {
+            // Инициализация компонентов
             InitializeComponent();
+            // Установка DataContext для привязки данных к MainViewModel
             DataContext = new MainViewModel();
         }
     }

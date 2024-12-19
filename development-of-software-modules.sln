@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab-3-example-mvvm", "lab-3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab-3-individual-mvp", "lab-3-individual-mvp\lab-3-individual-mvp.csproj", "{202083E4-8812-4B70-8DE1-573CF775C1B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab-3-individual-mvvm", "lab-3-individual-mvvm\lab-3-individual-mvvm.csproj", "{D0634281-867F-41B1-91AC-45150F86F70E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab-3-mvvm", "lab-3-mvvm\lab-3-mvvm.csproj", "{F1AC3CDC-B9BA-4A4C-B5E9-ACB72E20AAD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{202083E4-8812-4B70-8DE1-573CF775C1B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{202083E4-8812-4B70-8DE1-573CF775C1B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{202083E4-8812-4B70-8DE1-573CF775C1B9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D0634281-867F-41B1-91AC-45150F86F70E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0634281-867F-41B1-91AC-45150F86F70E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0634281-867F-41B1-91AC-45150F86F70E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0634281-867F-41B1-91AC-45150F86F70E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1AC3CDC-B9BA-4A4C-B5E9-ACB72E20AAD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1AC3CDC-B9BA-4A4C-B5E9-ACB72E20AAD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1AC3CDC-B9BA-4A4C-B5E9-ACB72E20AAD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1AC3CDC-B9BA-4A4C-B5E9-ACB72E20AAD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

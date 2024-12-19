@@ -6,22 +6,27 @@ using System.Threading.Tasks;
 
 namespace lab_3_individual_mvp
 {
+    // Класс Presenter, реализующий логику взаимодействия между представлением и моделью
     internal class Presenter
     {
+        // Поля для хранения ссылки на представление и модель
         private readonly IView _view;
         private readonly FractionModel _model;
 
+        // Конструктор, принимающий представление и инициализирующий модель
         public Presenter(IView view)
         {
             _view = view;
             _model = new FractionModel();
 
+            // Подписка на события представления
             _view.AddFractions += OnAddFractions;
             _view.SubtractFractions += OnSubtractFractions;
             _view.MultiplyFractions += OnMultiplyFractions;
             _view.DivideFractions += OnDivideFractions;
         }
 
+        // Обработчик события сложения дробей
         private void OnAddFractions(object sender, EventArgs e)
         {
             var result = _model.Add(
@@ -31,6 +36,7 @@ namespace lab_3_individual_mvp
             _view.Result = result.ToString();
         }
 
+        // Обработчик события вычитания дробей
         private void OnSubtractFractions(object sender, EventArgs e)
         {
             var result = _model.Subtract(
@@ -40,6 +46,7 @@ namespace lab_3_individual_mvp
             _view.Result = result.ToString();
         }
 
+        // Обработчик события умножения дробей
         private void OnMultiplyFractions(object sender, EventArgs e)
         {
             var result = _model.Multiply(
@@ -49,6 +56,7 @@ namespace lab_3_individual_mvp
             _view.Result = result.ToString();
         }
 
+        // Обработчик события деления дробей
         private void OnDivideFractions(object sender, EventArgs e)
         {
             try
@@ -61,7 +69,7 @@ namespace lab_3_individual_mvp
             }
             catch (DivideByZeroException ex)
             {
-                _view.Result = "Error: " + ex.Message;
+                _view.Result = "Ошибка: " + ex.Message;
             }
         }
     }
