@@ -1,3 +1,5 @@
+// Program.cs
+
 namespace lab_3_example_mvp
 {
     internal static class Program

@@ -1,4 +1,6 @@
-﻿using System;
+﻿// MainWindow.xaml.cs
+
+using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;

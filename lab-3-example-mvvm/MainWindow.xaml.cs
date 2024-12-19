@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿// MainWindow.xaml.cs
+
+using System.ComponentModel;
 using System.Windows;
 
 namespace lab_3_example_mvvm

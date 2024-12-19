@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Form1.Designer.cs
+
+using System;
 using System.Windows.Forms;
 
 namespace lab_3_example_mvp

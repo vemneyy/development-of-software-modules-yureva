@@ -1,4 +1,6 @@
-﻿namespace lab_3_individual_mvp
+﻿// Form1.Designer.cs
+
+namespace lab_3_individual_mvp
 {
     partial class Form1
     {

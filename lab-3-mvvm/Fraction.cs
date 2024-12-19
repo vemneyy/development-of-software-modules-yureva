@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Fraction.cs
+
+using System;
 
 namespace lab_3_mvvm
 {
