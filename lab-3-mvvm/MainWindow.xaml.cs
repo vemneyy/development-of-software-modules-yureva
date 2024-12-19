@@ -128,8 +128,8 @@ namespace lab_3_mvvm
         {
             private readonly ViewModel vm;
             public AddCommandImpl(ViewModel vm) { this.vm = vm; }
-            public bool CanExecute(object parameter) => true; // Команда всегда может быть выполнена
-            public void Execute(object parameter) => vm.TryCalculate((a, b) => a + b); // Выполнение операции сложения
+            public bool CanExecute(object parameter) => true;
+            public void Execute(object parameter) => vm.TryCalculate((a, b) => a + b);
             public event EventHandler? CanExecuteChanged { add { } remove { } }
         }
 
@@ -139,7 +139,7 @@ namespace lab_3_mvvm
             private readonly ViewModel vm;
             public SubtractCommandImpl(ViewModel vm) { this.vm = vm; }
             public bool CanExecute(object parameter) => true; // Команда всегда может быть выполнена
-            public void Execute(object parameter) => vm.TryCalculate((a, b) => a - b); // Выполнение операции вычитания
+            public void Execute(object parameter) => vm.TryCalculate((a, b) => a - b); 
             public event EventHandler? CanExecuteChanged { add { } remove { } }
         }
 
@@ -148,7 +148,7 @@ namespace lab_3_mvvm
         {
             private readonly ViewModel vm;
             public MultiplyCommandImpl(ViewModel vm) { this.vm = vm; }
-            public bool CanExecute(object parameter) => true; // Команда всегда может быть выполнена
+            public bool CanExecute(object parameter) => true;
             public void Execute(object parameter) => vm.TryCalculate((a, b) => a * b); // Выполнение операции умножения
             public event EventHandler? CanExecuteChanged { add { } remove { } }
         }
@@ -158,7 +158,7 @@ namespace lab_3_mvvm
         {
             private readonly ViewModel vm;
             public DivideCommandImpl(ViewModel vm) { this.vm = vm; }
-            public bool CanExecute(object parameter) => true; // Команда всегда может быть выполнена
+            public bool CanExecute(object parameter) => true; 
             public void Execute(object parameter) => vm.TryCalculate((a, b) => a / b); // Выполнение операции деления
             public event EventHandler? CanExecuteChanged { add { } remove { } }
         }

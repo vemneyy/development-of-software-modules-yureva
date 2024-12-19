@@ -29,6 +29,12 @@ namespace lab_3_individual_mvp
         // Обработчик события сложения дробей
         private void OnAddFractions(object sender, EventArgs e)
         {
+            if (!ValidateInput(out string errorMessage))
+            {
+                _view.Result = errorMessage;
+                return;
+            }
+
             var result = _model.Add(
                 new Fraction(int.Parse(_view.NumeratorA), int.Parse(_view.DenominatorA)),
                 new Fraction(int.Parse(_view.NumeratorB), int.Parse(_view.DenominatorB))
@@ -39,6 +45,12 @@ namespace lab_3_individual_mvp
         // Обработчик события вычитания дробей
         private void OnSubtractFractions(object sender, EventArgs e)
         {
+            if (!ValidateInput(out string errorMessage))
+            {
+                _view.Result = errorMessage;
+                return;
+            }
+
             var result = _model.Subtract(
                 new Fraction(int.Parse(_view.NumeratorA), int.Parse(_view.DenominatorA)),
                 new Fraction(int.Parse(_view.NumeratorB), int.Parse(_view.DenominatorB))
@@ -49,6 +61,12 @@ namespace lab_3_individual_mvp
         // Обработчик события умножения дробей
         private void OnMultiplyFractions(object sender, EventArgs e)
         {
+            if (!ValidateInput(out string errorMessage))
+            {
+                _view.Result = errorMessage;
+                return;
+            }
+
             var result = _model.Multiply(
                 new Fraction(int.Parse(_view.NumeratorA), int.Parse(_view.DenominatorA)),
                 new Fraction(int.Parse(_view.NumeratorB), int.Parse(_view.DenominatorB))
@@ -59,6 +77,12 @@ namespace lab_3_individual_mvp
         // Обработчик события деления дробей
         private void OnDivideFractions(object sender, EventArgs e)
         {
+            if (!ValidateInput(out string errorMessage))
+            {
+                _view.Result = errorMessage;
+                return;
+            }
+
             try
             {
                 var result = _model.Divide(
@@ -71,6 +95,20 @@ namespace lab_3_individual_mvp
             {
                 _view.Result = "Ошибка: " + ex.Message;
             }
+        }
+
+        private bool ValidateInput(out string errorMessage)
+        {
+            errorMessage = "";
+
+            if (string.IsNullOrWhiteSpace(_view.NumeratorA) || string.IsNullOrWhiteSpace(_view.DenominatorA) ||
+                string.IsNullOrWhiteSpace(_view.NumeratorB) || string.IsNullOrWhiteSpace(_view.DenominatorB))
+            {
+                errorMessage = "Заполните все поля для дробей.";
+                return false;
+            }
+
+            return true;
         }
     }
 }
