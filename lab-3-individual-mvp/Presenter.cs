@@ -97,12 +97,16 @@ namespace lab_3_individual_mvp
             }
         }
 
+        // Проверка на пустые поля ввода
         private bool ValidateInput(out string errorMessage)
         {
             errorMessage = "";
 
-            if (string.IsNullOrWhiteSpace(_view.NumeratorA) || string.IsNullOrWhiteSpace(_view.DenominatorA) ||
-                string.IsNullOrWhiteSpace(_view.NumeratorB) || string.IsNullOrWhiteSpace(_view.DenominatorB))
+            if (
+                string.IsNullOrWhiteSpace(_view.NumeratorA) || string.IsNullOrWhiteSpace(_view.DenominatorA) 
+                ||
+                string.IsNullOrWhiteSpace(_view.NumeratorB) || string.IsNullOrWhiteSpace(_view.DenominatorB)
+                )
             {
                 errorMessage = "Заполните все поля для дробей.";
                 return false;

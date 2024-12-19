@@ -2,7 +2,6 @@
 {
     partial class Form1
     {
-        private System.ComponentModel.IContainer components = null;
         private TextBox textBoxNumeratorA;
         private TextBox textBoxDenominatorA;
         private TextBox textBoxNumeratorB;
